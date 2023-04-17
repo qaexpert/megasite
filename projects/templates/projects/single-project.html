@@ -6,7 +6,7 @@
         <div class="container">
             <div class="layout">
                 <div class="column column--1of3">
-                    <h3 class="singleProject__subtitle">Категории</h3>
+                    <h3 class="singleProject__subtitle">Продукция</h3>
                     <div class="singleProject__toolStack">
                         {% for tag in project.tags.all %}
                             <a href="{% url 'tag' tag.slug %}" class="tag tag--pill tag--sub tag--lg">{{ tag }}</a>
@@ -37,9 +37,9 @@
                         {{ project.description }}
                     </div>
                     <div class="comments">
-                        <h3 class="singleProject__subtitle">Оценки и отзывы</h3>
+                        <h3 class="singleProject__subtitle">Отзывы покупателей</h3>
                         <h5 class="project--rating">
-                            процент положительных отзывов: {{ project.votes_ratio }}%
+                            рейтинг положительных отзывов: {{ project.votes_ratio }}%
                         </h5>
                         <h5 class="project--rating">
                             всего отзывов: {{ project.total_votes }}
@@ -48,7 +48,7 @@
                             <p>Вы уже писали отзыв об этом товаре</p>
 
                         {% elif request.user.profile == project.owner %}
-                            <p>Вы не можете оставлять отзывы к собственным цветам</p>
+                            <p>Вы не можете оставлять отзывы о своей компании</p>
 
                         {% elif request.user.is_authenticated %}
                             <form class="form" action="{% url 'project' project.slug %}" method="POST">
