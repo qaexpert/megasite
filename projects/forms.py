@@ -9,13 +9,13 @@ class ProjectForm( ModelForm ):
         model = Project
         fields = ['title', 'slug', 'image', 'tags', 'description', 'demo_link', 'source_link']
         labels = {
-            'title': 'Название проекта',
+            'title': 'Название товара',
             'slug': 'Слаг',
-            'image': 'Скриншот проекта',
+            'image': 'Фото товара',
             'tags': 'Теги',
-            'description': 'Описание проекта',
-            'demo_link': 'Демо-версия',
-            'source_link': 'Исходный код на GitHub'
+            'description': 'Описание товара',
+            'demo_link': 'Ссылка на промо-акции',
+            'source_link': 'Ссылка на сайт компании'
         }
 
         widgets = {
@@ -35,8 +35,8 @@ class ReviewForm( ModelForm ):
         fields = ['value', 'body']
 
         labels = {
-            'value': 'Поставьте оценку проекту',
-            'body': 'Добавьте отзыв о проекте'
+            'value': 'Поставьте оценку товару',
+            'body': 'Добавьте отзыв о товаре'
         }
 
     def __init__(self, *args, **kwargs):

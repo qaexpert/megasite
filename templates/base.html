@@ -52,25 +52,9 @@
                 <!--  <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>-->
             </ul>
         </div>
-
-        <div class="language-selector">
-            <form action="{% url 'set_language' %}" method="post">
-                {% csrf_token %}
-                <input name="text" type="button" value="{{ request.path }}">
-                <label>
-                    <select name="language" onchange="this.form.submit()">
-                        {% for lang_code, lang_name in LANGUAGES %}
-                            <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
-                                {{ lang_name }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </label>
-            </form>
-        </div>
         <div class="footer-bottom">
-            <p>Россия &copy; Тольятти &copy; Все права принадлежат цифровой платформе Российский "Ц.В.Е.Т.О.К." &copy;
-                version 1.4.1-alpha.0</p>
+            <p>Россия &copy; Тольятти &copy; Все права принадлежат цифровой платформе РОССИЙСКИЙ "Ц.В.Е.Т.О.К." &copy;
+                version 1.4.1-alpha.01</p>
             <div class="footer-menu">
                 <ul class="f-menu">
                     <li><a href="">Главная</a></li>

@@ -134,7 +134,7 @@ def createSkill(request):
             skill_slug = request.POST.get( 'slug' )
             skill_description = request.POST.get( 'description' )
             profile.skills.get_or_create( name=skill, slug=skill_slug, description=skill_description )
-            messages.success( request, 'Навык добавлен' )
+            messages.success( request, 'дополнение добавлено' )
             return redirect( 'account' )
 
     context = {'form': form}
@@ -151,7 +151,7 @@ def updateSkill(request, skill_slug):
         form = SkillForm( request.POST, instance=skill )
         if form.is_valid():
             form.save()
-            messages.success( request, 'Навык успешно обновлен' )
+            messages.success( request, 'Товар успешно обновлен' )
             return redirect( 'account' )
 
     context = {'form': form}
@@ -164,7 +164,7 @@ def deleteSkill(request, skill_slug):
     skill = profile.skills.get( slug=skill_slug )
     if request.method == 'POST':
         skill.delete()
-        messages.success( request, 'Навык успешно удален' )
+        messages.success( request, 'Товар успешно удален' )
         return redirect( 'account' )
 
     context = {'object': skill}
@@ -212,7 +212,7 @@ def createMessage(request, username):
                 message.email = sender.email
             message.save()
 
-            messages.success( request, 'Your message was successfully sent!' )
+            messages.success( request, 'Ваше сообщение было успешно отправлено!' )
             return redirect( 'user-profile', username=recipient.username )
 
     context = {'recipient': recipient, 'form': form}
