@@ -97,8 +97,15 @@ def profiles_by_skill(request, skill_slug):
 
 @login_required( login_url='login' )
 def userAccount(request):
-    profile = request.user.profile
+    user = request.user
 
+
+    try:
+        profile = user.profile
+    except Profile.DoesNotExist:
+        profile = Profile.objects.create( user=user )
+
+        #profile = request.user.profile
     skills = profile.skills.all()
     projects = profile.project_set.all()
 
