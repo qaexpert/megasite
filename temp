@@ -13,13 +13,20 @@
                 </label>
             </form>
         </div>
+{{ project.image.url }}
+{{ project.image.url }}
+{{ profile.image.url }} user-profile.html  {{ project.image.url }}
+{{ profile.image.url }} account.html
+{{ profile.image.url }} profiles.html
 
-       python -m venv venv
+python -m venv venv
 
        .\venv\Scripts\activate
 
        pip freeze > requirements.txt
 pip install -r requirements.txt
        python manage.py check
-python manage.py migrate
+python manage.py migrate     python manage.py makemigrations
+
 python manage.py runserver
+
