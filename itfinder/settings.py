@@ -142,5 +142,5 @@ STATICFILES_DIRS = os.path.join( BASE_DIR, 'static' ),
 STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"
 # STATIC_ROOT = os.path.join( BASE_DIR, 'staticfiles_build', 'static' )
 LANGUAGES = [('en', 'English'), ('ru', 'Русский'), ('es', 'Español'), ('fr', 'Français'), ]
-MEDIA_URL = '/static/'
+#MEDIA_URL = STATIC_URL
 MEDIA_ROOT = os.path.join( BASE_DIR, 'static' )
