@@ -3,6 +3,7 @@
 {% block content %}
 
     <main class="settingsPage profile my-md">
+
         <div class="container">
             <div class="layout">
                 <div class="column column--1of3">
@@ -11,7 +12,9 @@
                             <a class="tag tag--pill tag--main settings__btn" href="{% url 'edit-account' %}"><i
                                     class="im im-edit"></i>
                                 Изменить данные</a>
-                            <img class="avatar avatar--xl dev__avatar" src="/static/profile_images/default.jpg"/>
+                            <!--<img class="avatar avatar--xl dev__avatar" src="/static/profile_images/default.jpg"/>-->
+                            <img class="avatar avatar--xl dev__avatar" src="/static/industry_profile/imageprofile1.jpeg"/>
+
                             <h2 class="dev__name">{{ profile.name }}</h2>
                             <p class="dev__title">{{ profile.intro }}</p>
                             <p class="dev__location">Город: {{ profile.city }}</p>
@@ -95,9 +98,10 @@
                         {% for project in projects %}
                             <tr>
                                 <td class="settings__thumbnail">
-                                    <a href="{% url 'project' project.id %}"><img src="/static/project_images/default.jpg"
+                                    <a href="{% url 'project' project.id %}"><img src="{{ image_url }}"
                                                                                   alt="фото товара"/></a>
                                 </td>
+
                                 <td class="settings__tableInfo">
                                     <a href="{% url 'project' project.slug %}">{{ project.title }}</a>
                                     <p>{{ project.description|slice:"150" }}</p>

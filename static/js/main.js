@@ -46,3 +46,11 @@ for (let i = 0; tags.length > i; i++) {
 
     })
 }
+document.addEventListener('DOMContentLoaded', function () {
+    let images = ['default1.jpeg', 'default2.jpeg', 'default3.jpeg', 'default4.jpeg', 'default5.jpeg', 'default6.jpeg'];
+    let randomImage = images[Math.floor(Math.random() * images.length)];
+    let imageElements = document.querySelectorAll('.settings__thumbnail img');
+    imageElements.forEach(function(image) {
+        image.src = '/static/flowers_images/' + randomImage;
+    });
+});

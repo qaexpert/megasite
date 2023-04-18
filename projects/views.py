@@ -1,3 +1,6 @@
+import os
+import random
+
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
@@ -6,14 +9,40 @@ from .forms import ProjectForm, ReviewForm
 from .models import Project, Tag
 from .utils import paginateProjects, searchProjects
 
-
 def projects(request):
-    projects, search_query = searchProjects( request )
-    custom_range, projects = paginateProjects( request, projects, 6 )
-    context = {'projects': projects,
-               'search_query': search_query, 'custom_range': custom_range}
-    return render( request, 'projects/projects.html', context )
+    projects, search_query = searchProjects(request)
+    custom_range, projects = paginateProjects(request, projects, 6)
+    image_urls = ['/static/flowers_images/' + filename for filename in os.listdir('static/flowers_images/')]
+    projects_with_images = zip(projects, image_urls)
+    context = {
+        'projects_with_images': projects_with_images,
+        'search_query': search_query,
+        'custom_range': custom_range,
+    }
+    return render(request, 'projects/projects.html', context)
 
+#def projects(request):
+#    projects, search_query = searchProjects( request )
+#    custom_range, projects = paginateProjects( request, projects, 6 )
+#    image_url = '/static/flowers_images/' + random.choice( os.listdir( 'static/flowers_images' ) )
+ #   context = {'projects': projects,
+ #              'search_query': search_query, 'custom_range': custom_range, 'image_url': image_url}
+ #   return render( request, 'projects/projects.html', context )
+
+#def projects(request):
+#    projects, search_query = searchProjects(request)
+#    custom_range, projects = paginateProjects(request, projects, 6)
+
+    # выбрать случайный файл из папки static/flowers_images/
+#    images_dir = 'static/flowers_images/'
+#    image_file = random.choice(os.listdir(images_dir))
+#    image_url = f'/{images_dir}/{image_file}'
+
+  #  context = {'projects': projects,
+  #             'search_query': search_query,
+  #             'custom_range': custom_range,
+  #             'image_url': image_url}
+  #  return render(request, 'projects/projects.html', context)
 
 def project(request, project_slug):
     project = Project.objects.get( slug=project_slug )

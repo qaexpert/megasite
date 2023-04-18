@@ -1,3 +1,6 @@
+import os
+import random
+
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
@@ -99,18 +102,18 @@ def profiles_by_skill(request, skill_slug):
 def userAccount(request):
     user = request.user
 
-
     try:
         profile = user.profile
     except Profile.DoesNotExist:
-        profile = Profile.objects.create( user=user )
+        profile = Profile.objects.create(user=user)
 
-        #profile = request.user.profile
     skills = profile.skills.all()
     projects = profile.project_set.all()
 
-    context = {'profile': profile, 'skills': skills, 'projects': projects}
-    return render( request, 'users/account.html', context )
+    image_url = 'static/flowers_images/' + random.choice(os.listdir('static/flowers_images/'))
+    context = {'profile': profile, 'skills': skills, 'projects': projects, 'image_url': image_url}
+
+    return render(request, 'users/account.html', context)
 
 
 @login_required( login_url='login' )
