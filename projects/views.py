@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import ProjectForm, ReviewForm
-from .models import Project, Tag
+from .models import Project, Tag, MyModel
 from .utils import paginateProjects, searchProjects
 
 
@@ -95,3 +95,6 @@ def projects_by_tag(request, tag_slug):
     }
 
     return render( request, "projects/projects.html", context )
+def image(request):
+    image_file = request.FILES['image_file'].file.read()
+    MyModel.objects.create(image=image_file)

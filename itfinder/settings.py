@@ -59,11 +59,12 @@ ROOT_URLCONF = 'itfinder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join( BASE_DIR, 'templates')],
+        'DIRS': [os.path.join( BASE_DIR, 'templates' )],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.i18n',
+                #'django.template.context_processors.media',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -130,10 +131,10 @@ STATIC_URL = '/static/'
 # STATICFILES_DIRS = [
 #    BASE_DIR / 'static'
 # ]
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-#MEDIA_ROOT = BASE_DIR / 'media'
-    # os.path.join( BASE_DIR, 'media' ),
-MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join( BASE_DIR, 'media' )
+# MEDIA_ROOT = BASE_DIR / 'media'
+# os.path.join( BASE_DIR, 'media' ),
+#MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -141,3 +142,5 @@ STATICFILES_DIRS = os.path.join( BASE_DIR, 'static' ),
 STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"
 # STATIC_ROOT = os.path.join( BASE_DIR, 'staticfiles_build', 'static' )
 LANGUAGES = [('en', 'English'), ('ru', 'Русский'), ('es', 'Español'), ('fr', 'Français'), ]
+MEDIA_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
