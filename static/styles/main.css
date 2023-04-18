@@ -963,6 +963,7 @@ img {
 
     z-index: 99999;
 }
+
 .language-selector form {
     display: inline-block;
     margin-right: 10px;
@@ -974,8 +975,8 @@ img {
     color: white;
     font-size: inherit;
     /*font-weight: bold;*/
-   -webkit-appearance: none;
-   -moz-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: auto;
     padding: 0 10px 0 10px;
     /*background-image: url('/static/fr.svg');*/

@@ -12,20 +12,22 @@
             <ul class="header__menu">
                 <li class="header__menuItem">
                     <div class="language-selector">
-            <form action="{% url 'set_language' %}" method="post">
-                {% csrf_token %}
-                <input name="next" type="hidden" value="{{ request.path }}">
-                <label>
-                    <select name="language" onchange="this.form.submit()">
-                        {% for lang_code, lang_name in LANGUAGES %}
-                            <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
-                                {{ lang_name }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </label>
-            </form>
-        </div></li>
+                        <form action="{% url 'set_language' %}" method="post">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ request.path }}">
+                            <label>
+                                <select name="language" onchange="this.form.submit()">
+                                    {% for lang_code, lang_name in LANGUAGES %}
+                                        <option value="{{ lang_code }}"
+                                                {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                                            {{ lang_name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </label>
+                        </form>
+                    </div>
+                </li>
                 <li class="header__menuItem"><a href="{% url 'profiles' %}">Поставщики цветов</a></li>
                 <li class="header__menuItem"><a href="{% url 'projects' %}">Продукция</a></li>
 

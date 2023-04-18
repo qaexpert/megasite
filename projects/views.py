@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import ProjectForm, ReviewForm
-from .models import Project, Tag, MyModel
+from .models import Project, Tag
 from .utils import paginateProjects, searchProjects
 
 
@@ -26,7 +26,7 @@ def project(request, project_slug):
         review.project = project
         review.owner = request.user.profile
         review.save()
-        project.getVoteCount
+        var = project.getVoteCount
         messages.success( request, 'Ваш отзыв был добавлен!' )
         return redirect( 'project', project_slug=project.slug )
     return render( request, 'projects/single-project.html', {'project': project, 'form': form} )
@@ -95,6 +95,3 @@ def projects_by_tag(request, tag_slug):
     }
 
     return render( request, "projects/projects.html", context )
-def image(request):
-    image_file = request.FILES['image_file'].file.read()
-    MyModel.objects.create(image=image_file)

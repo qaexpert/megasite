@@ -2,7 +2,6 @@ import uuid
 
 from django.db import models
 from django.utils.text import slugify
-from pyexpat import model
 
 from users.models import Profile
 
@@ -27,7 +26,8 @@ class Project( models.Model ):
         Profile, null=True, blank=True, on_delete=models.CASCADE )
     title = models.CharField( max_length=100 )
     slug = models.SlugField()
-    image = models.ImageField( null=True, blank=True, default="static/project_images/default.jpg", upload_to='static/project_images', verbose_name='Изображение')
+    image = models.ImageField( null=True, blank=True, default="static/project_images/default.jpg",
+                               upload_to='static/project_images', verbose_name='Изображение' )
     description = models.TextField( null=True, blank=True )
     tags = models.ManyToManyField( Tag, blank=True )
     total_votes = models.IntegerField( default=0, null=True, blank=True )
@@ -76,6 +76,3 @@ class Review( models.Model ):
 
     def __str__(self):
         return self.value
-class MyModel(model.Model):
-    objects = None
-    image = models.BinaryField(blank=True)

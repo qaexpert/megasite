@@ -26,7 +26,8 @@ class Profile( models.Model ):
     intro = models.CharField( max_length=200, blank=True, null=True )
     bio = models.TextField( blank=True, null=True )
     image = models.ImageField(
-        null=True, blank=True, upload_to='static/profile_images', default="static/profile_images/default.jpg", verbose_name='Изображение' )
+        null=True, blank=True, upload_to='static/profile_images', default="static/profile_images/default.jpg",
+        verbose_name='Изображение' )
     skills = models.ManyToManyField( Skill, blank=True )
     github = models.CharField( max_length=100, blank=True, null=True )
     twitter = models.CharField( max_length=100, blank=True, null=True )
