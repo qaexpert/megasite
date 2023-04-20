@@ -23,7 +23,7 @@ class Profile( models.Model ):  #, verbose_name="ПОСТАВЩИКИ"
     name = models.CharField( max_length=50, blank=True, null=True )
     email = models.EmailField( max_length=50, blank=True, null=True )
     username = models.CharField( max_length=50, blank=True, null=True )
-    city = models.CharField( max_length=50, blank=True, null=True )
+    city = models.CharField( max_length=50, blank=True, null=True, verbose_name="город" )
     intro = models.CharField( max_length=200, blank=True, null=True )
     bio = models.TextField( blank=True, null=True )
     image = models.ImageField(
@@ -51,10 +51,10 @@ class Message( models.Model):   # , verbose_name="СООБЩЕНИЯ"
         Profile, on_delete=models.SET_NULL, null=True, blank=True )
     recipient = models.ForeignKey(
         Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name="messages" )
-    name = models.CharField( max_length=200, null=True, blank=True )
-    email = models.EmailField( max_length=200, null=True, blank=True )
-    subject = models.CharField( max_length=200, null=True, blank=True )
-    body = models.TextField()
+    name = models.CharField( max_length=200, null=True, blank=True, verbose_name="Имя" )
+    email = models.EmailField( max_length=200, null=True, blank=True, verbose_name="Электронная почта" )
+    subject = models.CharField( max_length=200, null=True, blank=True, verbose_name="Кому" )
+    body = models.TextField( verbose_name="Текст сообщения")
     is_read = models.BooleanField( default=False, null=True )
     created = models.DateTimeField( auto_now_add=True )
     id = models.UUIDField( default=uuid.uuid4, unique=True,
