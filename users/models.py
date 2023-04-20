@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-class Skill( models.Model ):
+class Skill( models.Model ):    # verbose_name="ОПЦИИ"
     name = models.CharField( max_length=50, blank=True, null=True )
     #slug = models.SlugField()
     slug = models.SlugField( unique=True )
@@ -17,7 +17,7 @@ class Skill( models.Model ):
         return str( self.name )
 
 
-class Profile( models.Model ):
+class Profile( models.Model ):  #, verbose_name="ПОСТАВЩИКИ"
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, null=True, blank=True )
     name = models.CharField( max_length=50, blank=True, null=True )
@@ -46,7 +46,7 @@ class Profile( models.Model ):
         ordering = ['created']
 
 
-class Message( models.Model ):
+class Message( models.Model):   # , verbose_name="СООБЩЕНИЯ"
     sender = models.ForeignKey(
         Profile, on_delete=models.SET_NULL, null=True, blank=True )
     recipient = models.ForeignKey(
