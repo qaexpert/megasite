@@ -6,7 +6,7 @@ from django.utils.text import slugify
 from users.models import Profile
 
 
-class Tag( models.Model ):
+class Tag( models.Model, verbose_name="АКЦИИ" ):
     name = models.CharField( max_length=100 )
     slug = models.SlugField()
     created = models.DateTimeField( auto_now_add=True )
@@ -21,11 +21,11 @@ class Tag( models.Model ):
         return self.name
 
 
-class Project( models.Model ):
+class Project( models.Model, verbose_name="ТОВАРЫ"):
     owner = models.ForeignKey(
         Profile, null=True, blank=True, on_delete=models.CASCADE )
-    title = models.CharField( max_length=100 )
-    slug = models.SlugField()
+    title = models.CharField( max_length=100, verbose_name="заголовок" )
+    slug = models.SlugField(verbose_name="слаг")
     image = models.ImageField( null=True, blank=True, default="project_images/default.jpg",
                                upload_to='project_images', verbose_name='Изображение' )
     description = models.TextField( null=True, blank=True )
@@ -58,7 +58,7 @@ class Project( models.Model ):
         self.save()
 
 
-class Review( models.Model ):
+class Review( models.Model , verbose_name="ОТЗЫВЫ"):
     VOTE_TYPE = (
         ('up', 'Положительная оценка'),
         ('down', 'Отрицательная оценка'),
