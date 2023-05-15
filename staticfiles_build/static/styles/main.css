@@ -136,7 +136,7 @@ h1 {
 }
 
 :root {
-    --color-sub: #2d2d39;
+    --color-sub: rgba(2, 163, 88, 0.78);
 }
 
 .btn--sub {

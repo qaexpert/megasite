@@ -8,7 +8,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: #2d2d39;
+    background: rgba(2, 163, 88, 0.78);
     height: auto;
     width: 100vw;
 
@@ -35,7 +35,7 @@
     margin: 10px auto;
     line-height: 28px;
     font-size: 14px;
-    color: #cacdd2;
+    color: #d4e3fc;
 }
 
 .socials {
@@ -136,7 +136,7 @@ h1 {
 }
 
 :root {
-    --color-sub: #2d2d39;
+    --color-sub: rgba(78, 236, 15, 0.75);
 }
 
 .btn--sub {
