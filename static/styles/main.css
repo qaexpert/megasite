@@ -8,7 +8,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(2, 163, 88, 0.78);
+    background: rgba(4, 124, 68, 0.78);
     height: auto;
     width: 100vw;
 
@@ -136,7 +136,7 @@ h1 {
 }
 
 :root {
-    --color-sub: rgba(78, 236, 15, 0.75);
+    --color-sub: rgba(2, 163, 88, 0.98);
 }
 
 .btn--sub {
